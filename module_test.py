@@ -10,20 +10,29 @@ import time
 
 clusters = 10
 lower_limit = 100
-upper_limit = 1000
+upper_limit = 5000
 
 obs,x,y,cls_labels = random_clusters(clusters,lower_limit,upper_limit)
 plot(obs[:,0],obs[:,1],'.')
 plot(x,y,'ok')
 savefig('obs_space.png')
 close()
-size = shape(obs)
-size = size[0]*size[1]
+size = len(obs)
+size = size
+print '%0.1f data points'%size
 t0 = time.clock()
-labels,k,centroids = ksmeans(obs,0.05,100)
+#threshold = linspace(0.01,0.1,10)
+#k_list = []
+#for t in threshold:
+#    labels,k,centroids = ksmeans(obs,threshold[t],100)
+#    k_list.append(k) 
+#figure()
+#hist(k_list)
+#show()
+labels,k,centroids = ksmeans(obs,0.1,100)
 process = time.clock() - t0
 print 'Process time: %0.2f secs'%process
-print '%0.1f data points'%size
+
 #a = [0,0]
 #b = [0,0]
 #acc_array = zeros((clusters,k))
@@ -50,10 +59,12 @@ colors = rand(k,3)
 
 
 figure()
+
 for j in range(k):
     scatter(obs[labels == j,0],obs[labels == j,1],c = colors[j],linewidths=0)
     plot(x,y,'ok')
-plot(centroids[:,0],centroids[:,1],'xk')
+plot(centroids[:,0],centroids[:,1],'xk',ms=15)
+title('Cluster time: %0.2f secs'%process)
     #cenx = mean(obs[labels == j,0])
     #ceny = mean(obs[labels == j,1])
     #text(cenx,ceny,'%0.2f' %acc_array[j,classify[j]])

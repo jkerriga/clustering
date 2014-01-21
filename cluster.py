@@ -33,7 +33,7 @@ def cluster(r):
    # Mean subtraction and normalization                                                                                           
    mu = mean(x)
    y = (x-mu)/std(x)
-   #y = sort(y)
+   y = sort(y)
    
    KS_stat,KS_pval = kstest(y,'norm')
    #AD_stat,_,__ = anderson(y,'norm')   
