@@ -20,8 +20,8 @@ def random_clusters(number,size1,size2):
     if size1 == size2:
         sizes = ones(number)*size1
         for i in range(number):
-            x_coord = 8*rand()*i*(randx[i]-0.5)
-            y_coord = 8*rand()*i*(randy[i]-0.5)
+            x_coord = 5*rand()*i*(randx[i]-0.5)
+            y_coord = 5*rand()*i*(randy[i]-0.5)
             x_dim = rand()*randn(size1)+ x_coord
             y_dim = rand()*randn(size1)+ y_coord
             x = append(x,x_dim)

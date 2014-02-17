@@ -9,7 +9,7 @@ from scipy.stats import anderson
 # Define the g-means algorithm                                                                                                     
 # This will test the given dataset (r) for gaussianity along the axis                                                              
 # that k-means determines is the most important for clustering.                                                                    
-# The return value (KS_pval) will be large (>0.05) if the cluster is nongaussian.                                                    
+# The return value (AD_stat) will be large if the cluster is nongaussian.                                                    
 #                           will be small if the cluster is gaussian.                                                              
 
 def cluster(r):
@@ -30,11 +30,8 @@ def cluster(r):
    
    x = dot(r,v)/linalg.norm(v)
 
-   # Mean subtraction and normalization                                                                                           
-   mu = mean(x)
-   y = (x-mu)/std(x)
-   y = sort(y)
+   AD_stat,AD_criticals,AD_percent = anderson(x,'norm')   
    
-   KS_stat,KS_pval = kstest(y,'norm')
-   #AD_stat,_,__ = anderson(y,'norm')   
-   return KS_pval,centroids,labels
+   AD_crit = AD_criticals[4]
+
+   return AD_stat,AD_crit,labels

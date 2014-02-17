@@ -13,7 +13,7 @@ from ksplit2 import *
 # method for finding sets of clusters within data.
 ########################
 ######################## 
-def ksmeans(obs,ks_crit,runs):
+def ksmeans(obs,runs):
 
     num_k = []
     n_obs = zeros(shape(obs))
@@ -33,7 +33,7 @@ def ksmeans(obs,ks_crit,runs):
         pct = 100*i/float(runs)
         sys.stdout.write("\r%0.1f%%" %pct)
         sys.stdout.flush()
-        centroids,labels,ks = ksplit2(n_obs,ks_crit)
+        centroids,labels,ks = ksplit2(n_obs)
         
         p = 0
         for j in range(300):
@@ -78,7 +78,7 @@ def ksmeans(obs,ks_crit,runs):
     new_k = 0
     b = 0
     while new_k != max_k:
-        centroids,labels,ks = ksplit2(n_obs,ks_crit)
+        centroids,labels,ks = ksplit2(n_obs)
         new_k = len(set(labels))
         b += 1
         if b > 99:

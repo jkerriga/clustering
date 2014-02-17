@@ -8,9 +8,10 @@ import time
 # for each cluster. Setting lower_limit = upper_limit creates all clusters with
 # the same amount of observations
 
-clusters = 10
-lower_limit = 100
-upper_limit = 5000
+clusters = 14
+lower_limit = 50
+upper_limit = 100
+trials = 100
 
 obs,x,y,cls_labels = random_clusters(clusters,lower_limit,upper_limit)
 plot(obs[:,0],obs[:,1],'.')
@@ -21,15 +22,8 @@ size = len(obs)
 size = size
 print '%0.1f data points'%size
 t0 = time.clock()
-#threshold = linspace(0.01,0.1,10)
-#k_list = []
-#for t in threshold:
-#    labels,k,centroids = ksmeans(obs,threshold[t],100)
-#    k_list.append(k) 
-#figure()
-#hist(k_list)
-#show()
-labels,k,centroids = ksmeans(obs,0.1,100)
+
+labels,k,centroids = ksmeans(obs,trials)
 process = time.clock() - t0
 print 'Process time: %0.2f secs'%process
 
