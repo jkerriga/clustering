@@ -11,6 +11,7 @@ from ksplit2 import *
 # Requires the following .py files to work: cluster.py, ksplit.py
 # ks_means.py and ksplit.py take the data observations and cluster them using the KSmeans splitting
 # method for finding sets of clusters within data.
+## Git test
 ########################
 ######################## 
 def ksmeans(obs,ks_crit,runs):
@@ -77,13 +78,16 @@ def ksmeans(obs,ks_crit,runs):
     # finding such a k.
     new_k = 0
     b = 0
-    while new_k != max_k:
-        centroids,labels,ks = ksplit2(n_obs,ks_crit)
-        new_k = len(set(labels))
-        b += 1
-        if b > 99:
-            print 'Cluster # is taking too long to recreate. Re-run ksmeans.'
-            break
+    if runs == 1:
+        print ''
+    else:
+        while new_k != max_k:
+            centroids,labels,ks = ksplit2(n_obs,ks_crit)
+            new_k = len(set(labels))
+            b += 1
+            if b > 99:
+                print 'Cluster # is taking too long to recreate. Re-run ksmeans.'
+                break
 
     print 'Reordering cluster labels.'
 
