@@ -22,8 +22,8 @@ def random_clusters(number,size1,size2):
         for i in range(number):
             x_coord = rand()*i*(randx[i]-0.5)
             y_coord = rand()*i*(randy[i]-0.5)
-            x_dim = rand()*randn(size1)+ x_coord
-            y_dim = rand()*randn(size1)+ y_coord
+            x_dim = 2*randn(size1)+ x_coord
+            y_dim = 2*randn(size1)+ y_coord
             x = append(x,x_dim)
             y = append(y,y_dim)
             x_coordinates = append(x_coordinates,x_coord)

@@ -8,10 +8,10 @@ import time
 # for each cluster. Setting lower_limit = upper_limit creates all clusters with
 # the same amount of observations
 
-clusters = 5
+clusters = 15
 lower_limit = 50
 upper_limit = 100
-threshold = 0.5
+threshold = 0.05
 trials = 100
 
 
