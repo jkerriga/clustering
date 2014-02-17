@@ -11,7 +11,7 @@ from ksplit2 import *
 # Requires the following .py files to work: cluster.py, ksplit.py
 # ks_means.py and ksplit.py take the data observations and cluster them using the KSmeans splitting
 # method for finding sets of clusters within data.
-## Git test
+# Git Test
 ########################
 ######################## 
 def ksmeans(obs,ks_crit,runs):
