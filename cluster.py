@@ -4,13 +4,13 @@ from numpy import *
 from scipy.stats import kstest
 from scipy.cluster.vq import *
 from numpy.random import randn
+from numpy.random import rand
 from scipy.stats import anderson
-
+import pylab as py
 # Define the g-means algorithm                                                                                                     
 # This will test the given dataset (r) for gaussianity along the axis                                                              
 # that k-means determines is the most important for clustering.                                                                    
-# The return value (KS_pval) will be large (>0.05) if the cluster is nongaussian.                                                    
-#                           will be small if the cluster is gaussian.                                                              
+# The return value (KS_pval) will be very small (<0.05) if the cluster is nongaussian.                                              #                            will be small if the cluster is gaussian.                                                              
 
 def cluster(r):
 
@@ -29,12 +29,11 @@ def cluster(r):
    x = empty((n))
    
    x = dot(r,v)/linalg.norm(v)
-
+   
    # Mean subtraction and normalization                                                                                           
    mu = mean(x)
    y = (x-mu)/std(x)
-   y = sort(y)
-   
+
    KS_stat,KS_pval = kstest(y,'norm')
-   #AD_stat,_,__ = anderson(y,'norm')   
-   return KS_pval,centroids,labels
+   
+   return KS_pval,KS_stat,labels

@@ -33,8 +33,8 @@ def random_clusters(number,size1,size2):
         sizes = linspace(size1,size2,number)
 
         for i in range(number):
-            x_coord = 2*(randx[i]-0.5)*i
-            y_coord = 2*(randy[i]-0.5)*i
+            x_coord = 5*(randx[i]-0.5)*i
+            y_coord = 5*(randy[i]-0.5)*i
             x_dim = 0.2*rand()*(i+1)*randn(round(sizes[i]))+ x_coord
             y_dim = 0.2*rand()*(i+1)*randn(round(sizes[i]))+ y_coord
             x = append(x,x_dim)

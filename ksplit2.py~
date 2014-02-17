@@ -15,9 +15,19 @@ def ksplit2(data_list,ks_crit):
     
     while p < l+1:
         r = data_list[labels_init == p]        
-        ks,statvalue,labels = cluster(r)
+        ks,ad,labels = cluster(r)
+                
+        #k = len(labels_init)
+        #colors = rand(k,3)
+
+        #plt.figure()
+        #obs = data_list
+        #for j in range(k):
+        #    plt.scatter(obs[labels_init == j,0],obs[labels_init == j,1],c = colors[j],linewidths=0)
+        #plt.savefig('/Users/joshkerrigan/Documents/LIGO Collab/clustering/GIF/'+str(p)+'.png')
+        #plt.close()
         
-        if ks > ks_crit:
+        if ks < ks_crit:
         # This is the condition for a good cluster                                                                                                                
             p += 1
             continue
