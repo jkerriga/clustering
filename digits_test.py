@@ -12,7 +12,7 @@ print shape(digit_data)
 size = shape(digit_data)
 size = size[0]*size[1]
 t0 = time.clock()
-labels,k,centers = ksmeans(digit_data,0.05,100)
+labels,k,centers = ksmeans(digit_data,10)
 process = time.clock() - t0
 print 'Process time: %0.2f secs'%process
 print '%0.1f data points'%size

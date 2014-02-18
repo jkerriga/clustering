@@ -20,10 +20,10 @@ def random_clusters(number,size1,size2):
     if size1 == size2:
         sizes = ones(number)*size1
         for i in range(number):
-            x_coord = 5*rand()*i*(randx[i]-0.5)
-            y_coord = 5*rand()*i*(randy[i]-0.5)
-            x_dim = rand()*randn(size1)+ x_coord
-            y_dim = rand()*randn(size1)+ y_coord
+            x_coord = 10*rand()*i*(randx[i]-0.5)
+            y_coord = 10*rand()*i*(randy[i]-0.5)
+            x_dim = 2*randn(size1)+ x_coord
+            y_dim = 2*randn(size1)+ y_coord
             x = append(x,x_dim)
             y = append(y,y_dim)
             x_coordinates = append(x_coordinates,x_coord)
@@ -33,10 +33,10 @@ def random_clusters(number,size1,size2):
         sizes = linspace(size1,size2,number)
 
         for i in range(number):
-            x_coord = 8*(randx[i]-0.5)*i
-            y_coord = 8*(randy[i]-0.5)*i
-            x_dim = rand()*(i+1)*randn(round(sizes[i]))+ x_coord
-            y_dim = rand()*(i+1)*randn(round(sizes[i]))+ y_coord
+            x_coord = 10*rand()*i*(randx[i]-0.5)
+            y_coord = 10*rand()*i*(randy[i]-0.5)
+            x_dim = 0.5*rand()*(i+1)*randn(round(sizes[i]))+ x_coord
+            y_dim = 0.5*rand()*(i+1)*randn(round(sizes[i]))+ y_coord
             x = append(x,x_dim)
             y = append(y,y_dim)
             x_coordinates = append(x_coordinates,x_coord)

@@ -8,10 +8,10 @@ import time
 # for each cluster. Setting lower_limit = upper_limit creates all clusters with
 # the same amount of observations
 
-clusters = 14
-lower_limit = 50
+clusters = 25
+lower_limit = 25
 upper_limit = 100
-trials = 100
+trials = 1000
 
 obs,x,y,cls_labels = random_clusters(clusters,lower_limit,upper_limit)
 plot(obs[:,0],obs[:,1],'.')

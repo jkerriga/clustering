@@ -38,13 +38,13 @@ def ksmeans(obs,runs):
         p = 0
         for j in range(300):
             l = where(labels==j)
-            if len(l[0]) >= 2:
+            if len(l[0]) >= 1:
                 labels[l[0]] = p
                 p += 1
             else:
                 continue    
         for t in range(max(labels)):
-            if len(n_obs[labels == t,0]) < 2:
+            if len(n_obs[labels == t,0]) < 1:
                 i -= 1
                 cond = 1
                 break

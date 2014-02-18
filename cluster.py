@@ -31,7 +31,6 @@ def cluster(r):
    x = dot(r,v)/linalg.norm(v)
 
    AD_stat,AD_criticals,AD_percent = anderson(x,'norm')   
-   
-   AD_crit = AD_criticals[4]
+   AD_crit = AD_criticals[2]
 
    return AD_stat,AD_crit,labels

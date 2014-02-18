@@ -16,8 +16,9 @@ def ksplit2(data_list):
     
     while p < l+1:
         r = data_list[labels_init == p]        
+    
         ad,ad_crit,labels = cluster(r)
-                
+        
         if ad < ad_crit:
             # This is the condition for a good cluster
             p += 1
