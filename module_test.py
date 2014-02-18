@@ -27,6 +27,15 @@ labels,k,centroids = ksmeans(obs,trials)
 process = time.clock() - t0
 print 'Process time: %0.2f secs'%process
 
+below = 0
+for i in range(max(labels)+1):
+    if len(labels[labels == i]) <= 20:
+        below += 1
+    else:
+        continue
+print below
+
+
 #a = [0,0]
 #b = [0,0]
 #acc_array = zeros((clusters,k))
